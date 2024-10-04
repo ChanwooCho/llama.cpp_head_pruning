@@ -439,6 +439,10 @@ typedef double ggml_float;
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
+#ifndef __NR_getcpu
+#define __NR_getcpu 319 // This is the syscall number for getcpu on many Linux systems
+#endif
+
 #if defined(__ANDROID__)
     #if defined(__x86_64__)
     #define __NR_sched_setaffinity 203
